@@ -1,5 +1,3 @@
-package library;
-
 import java.util.Comparator;
 
 public class Geometry {
