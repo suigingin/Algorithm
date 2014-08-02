@@ -4,16 +4,17 @@ import java.util.Scanner;
 public class Common {
 	MyScanner sc = new MyScanner();
 	Scanner sc2 = new Scanner(System.in);
+	final int MOD = 1000000007;
+	int[] dx = { 1, 0, 0, -1 };
+	int[] dy = { 0, 1, -1, 0 };
 
 	void run() {
-		
 	}
 
 	public static void main(String[] args) {
 		new Common().run();
 	}
 
-	
 	void debug(Object... o) {
 		System.out.println(Arrays.deepToString(o));
 	}
