@@ -52,6 +52,10 @@ public class Common {
 			return Double.parseDouble(next());
 		}
 
+		long nextLong() {
+			return Long.parseLong(next());
+		}
+
 		String next() {
 			try {
 				StringBuilder res = new StringBuilder("");
