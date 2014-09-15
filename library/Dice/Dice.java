@@ -1,5 +1,3 @@
-package library;
-
 class Dice {
 	String top;
 	String front;
