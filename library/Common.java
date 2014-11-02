@@ -28,6 +28,33 @@ public class Common {
 		}
 	}
 
+	boolean inner(int h, int w, int lim) {
+		return 0 <= h && h < lim && 0 <= w && w < lim;
+	}
+
+	void swap(int[] x, int a, int b) {
+		int tmp = x[a];
+		x[a] = x[b];
+		x[b] = tmp;
+	}
+
+	// find minimum i (a[i] >= border)
+	int lower_bound(int a[], int border) {
+		int l = -1;
+		int r = a.length;
+
+		while (r - l > 1) {
+			int mid = (l + r) / 2;
+			if (border <= a[mid]) {
+				r = mid;
+			} else {
+				l = mid;
+			}
+		}
+		// r = l + 1
+		return r;
+	}
+
 	class MyScanner {
 		int nextInt() {
 			try {
@@ -69,6 +96,38 @@ public class Common {
 			} catch (Exception e) {
 				return null;
 			}
+		}
+
+		int[] nextIntArray(int n) {
+			int[] in = new int[n];
+			for (int i = 0; i < n; i++) {
+				in[i] = nextInt();
+			}
+			return in;
+		}
+
+		int[][] nextInt2dArray(int n, int m) {
+			int[][] in = new int[n][m];
+			for (int i = 0; i < n; i++) {
+				in[i] = nextIntArray(m);
+			}
+			return in;
+		}
+
+		double[] nextDoubleArray(int n) {
+			double[] in = new double[n];
+			for (int i = 0; i < n; i++) {
+				in[i] = nextDouble();
+			}
+			return in;
+		}
+
+		long[] nextLongArray(int n) {
+			long[] in = new long[n];
+			for (int i = 0; i < n; i++) {
+				in[i] = nextLong();
+			}
+			return in;
 		}
 	}
 }
