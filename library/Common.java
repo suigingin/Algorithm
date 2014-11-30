@@ -28,8 +28,8 @@ public class Common {
 		}
 	}
 
-	boolean inner(int h, int w, int lim) {
-		return 0 <= h && h < lim && 0 <= w && w < lim;
+	boolean inner(int h, int w, int limH, int limW) {
+		return 0 <= h && h < limH && 0 <= w && w < limW;
 	}
 
 	void swap(int[] x, int a, int b) {
