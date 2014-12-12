@@ -62,6 +62,24 @@ public class NumberTheory {
 		return ret;
 	}
 
+	long gcd(long a, long b) {
+		return a % b == 0 ? b : gcd(b, a % b);
+	}
+
+	long lcm(long a, long b) {
+		return a * b / gcd(a, b);
+	}
+
+	void fraction(long numerator1, long denominator1, long numerator2, long denominator2) {
+		long lcm = lcm(denominator1, denominator2);
+		numerator1 *= lcm / denominator1;
+		numerator2 *= lcm / denominator2;
+		long resNume = numerator1 + numerator2;
+		long resDeno = lcm;
+		long gcd = gcd(resNume, resDeno);
+		System.out.println(resNume / gcd + " / " + resDeno / gcd);
+	}
+
 	public static void main(String[] args) {
 	}
 
