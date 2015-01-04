@@ -1,5 +1,3 @@
-package POJ_3000;
-
 public class POJ_3051 {
 	MyScanner sc = new MyScanner();
 	int[] dx = { 1, 0, 0, -1 };

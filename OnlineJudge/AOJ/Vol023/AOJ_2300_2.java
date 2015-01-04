@@ -1,5 +1,3 @@
-package Vol023;
-
 public class AOJ_2300_2 {
 	MyScanner sc = new MyScanner();
 

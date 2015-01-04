@@ -1,5 +1,3 @@
-package Vol021;
-
 import java.util.Arrays;
 
 public class AOJ_2155 {

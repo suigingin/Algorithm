@@ -1,5 +1,3 @@
-package Vol023;
-
 import java.util.ArrayList;
 
 public class AOJ_2300_1 {
