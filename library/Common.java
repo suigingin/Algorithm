@@ -129,6 +129,17 @@ public class Common {
 			}
 			return in;
 		}
+
+		char[][] nextCharField(int n, int m) {
+			char[][] in = new char[n][m];
+			for (int i = 0; i < n; i++) {
+				String s = sc.next();
+				for (int j = 0; j < m; j++) {
+					in[i][j] = s.charAt(j);
+				}
+			}
+			return in;
+		}
 	}
 }
 
