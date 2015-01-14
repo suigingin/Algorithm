@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class Common {
 	MyScanner sc = new MyScanner();
 	Scanner sc2 = new Scanner(System.in);
+	long start = System.currentTimeMillis();
+	long fin = System.currentTimeMillis();
 	final int MOD = 1000000007;
 	int[] dx = { 1, 0, 0, -1 };
 	int[] dy = { 0, 1, -1, 0 };
