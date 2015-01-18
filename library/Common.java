@@ -44,7 +44,6 @@ public class Common {
 	int lower_bound(int a[], int border) {
 		int l = -1;
 		int r = a.length;
-
 		while (r - l > 1) {
 			int mid = (l + r) / 2;
 			if (border <= a[mid]) {
@@ -55,6 +54,15 @@ public class Common {
 		}
 		// r = l + 1
 		return r;
+	}
+
+	boolean palindrome(String s) {
+		for (int i = 0; i < s.length() / 2; i++) {
+			if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	class MyScanner {
