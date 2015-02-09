@@ -10,10 +10,11 @@ public class B {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		for (int i = 1; i <= 81; i++) {
 			int x = (int) (b * Math.pow(i, a) + c);
+			int xx = x;
 			int digitSum = 0;
-			String strX = String.valueOf(x);
-			for (int j = 0; j < strX.length(); j++) {
-				digitSum += strX.charAt(j) - '0';
+			while (xx > 0) {
+				digitSum += xx % 10;
+				xx /= 10;
 			}
 			if (digitSum == i && 0 < x && x < 1000000000) {
 				list.add(x);
@@ -50,6 +51,5 @@ public class B {
 				return -1;
 			}
 		}
-
 	}
 }
