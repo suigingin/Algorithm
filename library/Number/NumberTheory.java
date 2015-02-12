@@ -37,7 +37,7 @@ public class NumberTheory {
 	int[] perm;
 	void permutation(int pos) {
 		if (pos == N) {
-			out(perm);
+			// process
 		}
 		for (int i = 0; i < N; i++) {
 			if (!used[i]) {
@@ -80,11 +80,17 @@ public class NumberTheory {
 		System.out.println(resNume / gcd + " / " + resDeno / gcd);
 	}
 
-	public static void main(String[] args) {
+	long combination(long n, long m) {
+		m = Math.min(m, n - m);
+		long res = 1;
+		for (long i = n - m + 1, j = 1; j <= m; i++, j++) {
+			res *= i;
+			res /= j;
+		}
+		return res;
 	}
 
-	void out(Object... o) {
-		System.out.println(Arrays.deepToString(o));
+	public static void main(String[] args) {
 	}
 }
 
