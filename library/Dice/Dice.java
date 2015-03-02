@@ -6,8 +6,7 @@ class Dice {
 	String left;
 	String reverse;
 
-	public Dice(String top, String front, String right, String back,
-			String left, String reverse) {
+	public Dice(String top, String front, String right, String back, String left, String reverse) {
 		super();
 		this.top = top;
 		this.front = front;
@@ -17,10 +16,8 @@ class Dice {
 		this.reverse = reverse;
 	}
 
-	void disp() {
-		System.out.print(this.top + " " + this.front + " " + this.right + " "
-				+ this.back + " " + this.left + " " + this.reverse);
-		System.out.println();
+	void show() {
+		System.out.println(this.top + " " + this.front + " " + this.right + " " + this.back + " " + this.left + " " + this.reverse);
 	}
 
 	void rotate_parallel() {
