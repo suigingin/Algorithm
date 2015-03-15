@@ -1,22 +1,26 @@
-public class Lcs {
+import java.util.Scanner;
 
-	int getLcs(char[] s, char[] t) {
-		int n = s.length;
-		int m = t.length;
-		int[][] dp = new int[n + 1][m + 1];
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				if (s[i] == t[j]) {
-					dp[i + 1][j + 1] = dp[i][j] + 1;
-				} else {
-					dp[i + 1][j + 1] = Math.max(dp[i + 1][j], dp[i][j + 1]);
+public class AOJ_2090 {
+	Scanner sc = new Scanner(System.in);
+
+	void run() {
+		for (;;) {
+			String in = sc.next();
+			if (in.equals("#END")) {
+				return;
+			}
+			String ans = "";
+			for (int i = 1; i < in.length(); i++) {
+				String lcs = lcs(in.substring(0, i), in.substring(i, in.length()));
+				if (lcs.length() > ans.length()) {
+					ans = lcs;
 				}
 			}
+			System.out.println(ans);
 		}
-		return dp[n][m];
 	}
 
-	String getLcsString(String s, String t) {
+	String lcs(String s, String t) {
 		int n = s.length();
 		int m = t.length();
 		int[][] dp = new int[n + 1][m + 1];
@@ -43,5 +47,8 @@ public class Lcs {
 		}
 		return String.valueOf(res);
 	}
-}
 
+	public static void main(String[] args) {
+		new AOJ_2090().run();
+	}
+}
