@@ -20,12 +20,7 @@ public class AOJ_0121 {
 			int size = que.size();
 			for (int i = 0; i < size; i++) {
 				String now = que.poll();
-				int zero = 0;
-				for (int j = 0; j < 8; j++) {
-					if (now.charAt(j) == '0') {
-						zero = j;
-					}
-				}
+				int zero = now.indexOf('0');
 				if (zero != 0 && zero != 4) {
 					char[] next = now.toCharArray();
 					char t = next[zero - 1];
@@ -66,9 +61,5 @@ public class AOJ_0121 {
 
 	public static void main(String[] args) {
 		new AOJ_0121().run();
-	}
-
-	void debug(Object... o) {
-		System.out.println(Arrays.deepToString(o));
 	}
 }
