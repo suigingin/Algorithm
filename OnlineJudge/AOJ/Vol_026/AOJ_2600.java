@@ -18,24 +18,12 @@ public class AOJ_2600 {
 			ht[y - w < 0 ? 0 : y - w]++;
 			ht[y + w > H ? H : y + w]--;
 		}
-		for (int i = 1; i < W; i++) {
-			wt[i] += wt[i - 1];
-		}
-		for (int i = 1; i < H; i++) {
-			ht[i] += ht[i - 1];
-		}
+		for (int i = 1; i < W; i++) wt[i] += wt[i - 1];
+		for (int i = 1; i < H; i++) ht[i] += ht[i - 1];
 		boolean okW = true;
 		boolean okH = true;
-		for (int i = 0; i < W; i++) {
-			if (wt[i] <= 0) {
-				okW = false;
-			}
-		}
-		for (int i = 0; i < H; i++) {
-			if (ht[i] <= 0) {
-				okH = false;
-			}
-		}
+		for (int i = 0; i < W; i++) if (wt[i] <= 0) okW = false;
+		for (int i = 0; i < H; i++) if (ht[i] <= 0) okH = false;
 		System.out.println(okW || okH ? "Yes" : "No");
 	}
 
