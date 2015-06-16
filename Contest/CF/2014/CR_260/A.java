@@ -2,22 +2,20 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class A {
-	Scanner sc2 = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
 
 	void run() {
-		int n = sc2.nextInt();
+		int n = sc.nextInt();
 		Info[] info = new Info[n];
-		for (int i = 0; i < n; i++) {
-			info[i] = new Info(sc2.nextInt(), sc2.nextInt());
-		}
+		for (int i = 0; i < n; i++) info[i] = new Info(sc.nextInt(), sc.nextInt());
 		Arrays.sort(info);
-		boolean judge = false;
 		for (int i = 0; i < n - 1; i++) {
 			if (info[i].quality > info[i + 1].quality) {
-				judge = true;
+				System.out.println("Happy Alex");
+				return;
 			}
 		}
-		System.out.println(judge ? "Happy Alex" : "Poor Alex");
+		System.out.println("Poor Alex");
 	}
 
 	class Info implements Comparable<Info> {
