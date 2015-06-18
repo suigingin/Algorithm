@@ -27,12 +27,8 @@ public class B {
 		long mb = 0;
 		for (long ai = a; ai * ai <= need; ai++) {
 			long bi = need / ai;
-			if (ai < a || bi < b) {
-				continue;
-			}
-			if (ai * bi < need) {
-				bi++;
-			}
+			if (bi < b) continue;
+			if (ai * bi < need) bi++;
 			if (ai * bi < min) {
 				min = ai * bi;
 				ma = ai;
