@@ -14,7 +14,7 @@ public class D {
 		int[] pFactorCnt = new int[M + 1];
 		int[] pFactorSum = new int[M + 1];
 		for (int i = 2; i <= M; i++) {
-			pFactorCnt[i] = isPrime[i] == 0 ? 1 : pFactorCnt[i / isPrime[i]] + 1;
+			pFactorCnt[i] = (isPrime[i] == 0) ? 1 : pFactorCnt[i / isPrime[i]] + 1;
 			pFactorSum[i] = pFactorSum[i - 1] + pFactorCnt[i];
 		}
 
