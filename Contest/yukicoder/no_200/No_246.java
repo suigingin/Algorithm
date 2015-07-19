@@ -11,7 +11,6 @@ public class No_246 {
 			int ans = sc.nextInt();
 			if (ans == 1) l = mid;
 			else r = mid;
-			
 		}
 		System.out.println("! " + l);
 	}

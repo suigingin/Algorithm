@@ -17,16 +17,16 @@ public class No_245 {
 				if (i == j) continue;
 				Point p1 = p[j][0];
 				Point p2 = p[j][1];
-				max = Math.max(max, crossCnt(o1, p1, i, j));
-				max = Math.max(max, crossCnt(o1, p2, i, j));
-				max = Math.max(max, crossCnt(o2, p1, i, j));
-				max = Math.max(max, crossCnt(o2, p2, i, j));
+				max = Math.max(max, crossCnt(o1, p1));
+				max = Math.max(max, crossCnt(o1, p2));
+				max = Math.max(max, crossCnt(o2, p1));
+				max = Math.max(max, crossCnt(o2, p2));
 			}
 		}
 		System.out.println(max);
 	}
 
-	int crossCnt(Point s, Point t, int non1, int non2) {
+	int crossCnt(Point s, Point t) {
 		int cnt = 0;
 		for (int i = 0; i < N; i++) {
 			if (lineCross(s, t, p[i][0], p[i][1])) cnt++;
