@@ -54,6 +54,24 @@ public class Geometry {
 		else                           return 5;
 	}
 
+	// 点o -> 直線abとの距離
+	double pointToLine(Point o, Point a, Point b) {
+		Point subBA = new Point(b.x - a.x, b.y - a.y);
+		Point subOA = new Point(o.x - a.x, o.y - a.y);
+		return Math.abs(crossProduct(subBA, subOA) / Math.hypot(subBA.x, subBA.y));
+	}
+
+	// 点o -> 線分abとの距離
+	double pointToLineSegment(Point o, Point a, Point b) {
+		Point subAB = new Point(a.x - b.x, a.y - b.y);
+		Point subBA = new Point(b.x - a.x, b.y - a.y);
+		Point subOA = new Point(o.x - a.x, o.y - a.y);
+		Point subOB = new Point(o.x - b.x, o.y - b.y);
+		if (dot(subBA, subOA) < EPS)      return Math.hypot(subOA.x, subOA.y);
+		else if (dot(subAB, subOB) < EPS) return Math.hypot(subOB.x, subOB.y);
+		else return crossProduct(subBA, subOA) / Math.hypot(subBA.x, subBA.y);
+	}
+
 	// 外積
 	double crossProduct(Point a, Point b) {
 		return a.x * b.y - a.y * b.x;
