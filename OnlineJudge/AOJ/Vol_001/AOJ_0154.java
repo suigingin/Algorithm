@@ -12,14 +12,14 @@ public class AOJ_0154 {
 				c[i][0] = sc.nextInt();
 				c[i][1] = sc.nextInt();
 			}
-			int[][] dp = new int[n + 1][2001];
+			int[][] dp = new int[n + 1][1011];
 			dp[0][0] = 1;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j <= 1000; j++) {
 					if (dp[i][j] != 0) {
 						dp[i + 1][j] += dp[i][j];
-						for (int k = 1; k <= c[i][1]; k++) {
-							if (j + k * c[i][0] <= 1000) dp[i + 1][j + k * c[i][0]] += dp[i][j];
+						for (int k = 1; k <= c[i][1] && j + k * c[i][0] <= 1000; k++) {
+							dp[i + 1][j + k * c[i][0]] += dp[i][j];
 						}
 					}
 				}
