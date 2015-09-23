@@ -28,13 +28,20 @@ public class Geometry {
 		return res;
 	}
 
-	// 線分p1p2と線分p3p4が交差しているかを判定 true->交差(=含みで接する含む) false->交差せず
+	// 線分p1->p2と線分p3->p4が交差しているかを判定 true->交差(=含みで接する含む) false->交差せず
 	boolean lineCross(Point p1, Point p2, Point p3, Point p4) {
 		double a = (p1.x - p2.x) * (p3.y - p1.y) + (p1.y - p2.y) * (p1.x - p3.x);
 		double b = (p1.x - p2.x) * (p4.y - p1.y) + (p1.y - p2.y) * (p1.x - p4.x);
 		double c = (p3.x - p4.x) * (p1.y - p3.y) + (p3.y - p4.y) * (p3.x - p1.x);
 		double d = (p3.x - p4.x) * (p2.y - p3.y) + (p3.y - p4.y) * (p3.x - p2.x);
 		return a * b <= 0 && c * d <= 0;
+	}
+
+	// 線分p1->p2と直線p3->p4が交差しているかを判定 true->交差(=含みで接する含む) false->交差せず
+	boolean lineCross2(Point p1, Point p2, Point p3, Point p4) {
+		double a = (p3.x - p4.x) * (p1.y - p3.y) + (p3.y - p4.y) * (p3.x - p1.x);
+		double b = (p3.x - p4.x) * (p2.y - p3.y) + (p3.y - p4.y) * (p3.x - p2.x);
+		return a * b <= 0;
 	}
 
 	// 0 : 任意の2点が重複
