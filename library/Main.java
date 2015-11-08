@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Common {
+public class Main {
 	MyScanner sc = new MyScanner();
 	Scanner sc2 = new Scanner(System.in);
 	long start = System.currentTimeMillis();
@@ -14,14 +14,14 @@ public class Common {
 	}
 
 	public static void main(String[] args) {
-		new Common().run();
+		new Main().run();
 	}
 
 	void debug(Object... o) {
 		System.out.println(Arrays.deepToString(o));
 	}
 
-	void debug2(int[][] array) {
+	void debug2(char[][] array) {
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {
 				System.out.print(array[i][j]);
@@ -40,20 +40,38 @@ public class Common {
 		x[b] = tmp;
 	}
 
-	// find minimum i (a[i] >= border)
-	int lower_bound(int a[], int border) {
+	// find minimum i (k <= a[i])
+	int lower_bound(int a[], int k) {
 		int l = -1;
 		int r = a.length;
 		while (r - l > 1) {
 			int mid = (l + r) / 2;
-			if (border <= a[mid]) {
-				r = mid;
-			} else {
-				l = mid;
-			}
+			if (k <= a[mid]) r = mid;
+			else l = mid;
 		}
 		// r = l + 1
 		return r;
+	}
+
+	// find minimum i (k < a[i])
+	int upper_bound(int a[], int k) {
+		int l = -1;
+		int r = a.length;
+		while (r - l > 1) {
+			int mid = (l + r) / 2;
+			if (k < a[mid]) r = mid;
+			else l = mid;
+		}
+		// r = l + 1
+		return r;
+	}
+
+	long gcd(long a, long b) {
+		return a % b == 0 ? b : gcd(b, a % b);
+	}
+
+	long lcm(long a, long b) {
+		return a * b / gcd(a, b);
 	}
 
 	boolean palindrome(String s) {
@@ -152,4 +170,3 @@ public class Common {
 		}
 	}
 }
-
