@@ -5,57 +5,40 @@ import java.util.Collections;
 public class BearCavalry {
 	final int MOD = 1000000007;
 
-	public int countAssignments(int[] warriors, int[] horses) {
+	public int countAssignments(int[] warriors, int[] h) {
+		int N = warriors.length;
+		int B = warriors[0];
+		int[] w = new int[N - 1];
 		long res = 0;
-		int W = warriors.length;
-		int H = horses.length;
-		int top = warriors[0];
-		int[] w = new int[W - 1];
-		int[] h = new int[H];
-		for (int i = 0; i < W - 1; i++) w[i] = warriors[i + 1];
-		for (int i = 0; i < H; i++) h[i] = horses[i];
+		for (int i = 1; i < N; i++) w[i - 1] = warriors[i];
 		Arrays.sort(w);
 		Arrays.sort(h);
-		for (int i = 0; i < H; i++) {
-			// topがi番目のhorseを選ぶとする
-			int Top = top * h[i];
+		for (int i = 0; i < N; i++) {
+			// Bがh[i]を選択
+			int strength = B * h[i];
 			ArrayList<Integer> l = new ArrayList<Integer>();
-			for (int j = 0; j < W - 1; j++) {
-				int[] mul = new int[H - 1];
-				for (int k = 0, index = 0; k < H; k++) {
-					if (k == i) continue;
-					mul[index++] = w[j] * h[k];
+			for (int j = 0; j < N - 1; j++) {
+				int lower = 0;
+				for (int k = 0; k < N; k++) {
+					if (i == k) continue;
+					if (w[j] * h[k] >= strength) break;
+					lower++;
 				}
-				l.add(upper_bound(mul, Top - 1));
+				l.add(lower);
 			}
 			Collections.sort(l);
-			long mul = 1;
-			for (int j = 0; j < l.size(); j++) {
+			long add = 1;
+			for (int j = 0; j < N - 1; j++) {
 				if (l.get(j) - j <= 0) {
-					mul = 0;
+					add = 0;
 					break;
 				}
-				mul *= (l.get(j) - j);
-				mul %= MOD;
+				add *= (l.get(j) - j);
+				add %= MOD;
 			}
-			if (mul > 0) {
-				res = res + mul;
-				res %= MOD;
-			}
+			res += add;
+			res %= MOD;
 		}
-		return (int) res % MOD;
-	}
-
-	// find minimum i (k < a[i])
-	int upper_bound(int a[], int k) {
-		int l = -1;
-		int r = a.length;
-		while (r - l > 1) {
-			int mid = (l + r) / 2;
-			if (k < a[mid]) r = mid;
-			else l = mid;
-		}
-		// r = l + 1
-		return r;
+		return (int) res;
 	}
 }
