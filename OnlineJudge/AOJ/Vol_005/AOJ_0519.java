@@ -25,18 +25,14 @@ public class AOJ_0519 {
 		for (int i = 0; i < M; i++) {
 			int v = sc.nextInt() - 1;
 			int u = sc.nextInt() - 1;
-			G[u].add(v);
-			indeg[v]++;
+			G[v].add(u);
+			indeg[u]++;
 		}
 
-		int cnt = 0;
-		for (int i = 0; i < N; i++) if (indeg[i] == 0) cnt++;
-		if (cnt > 1) multi = true;
-	
 		topologicalSort();
 
 		StringBuilder o = new StringBuilder();
-		for (int i = N - 1; i >= 0; i--) o.append(res.get(i) + "\n");
+		for (int i = 0; i < N; i++) o.append(res.get(i) + "\n");
 		System.out.print(o);
 		System.out.println(multi ? 1 : 0);
 	}
