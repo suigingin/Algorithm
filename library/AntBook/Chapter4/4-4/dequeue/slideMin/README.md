@@ -4,8 +4,6 @@ O(n)
 
 ### コード
 ```java
-package no_fill;
-
 import java.util.Deque;
 import java.util.LinkedList;
 
