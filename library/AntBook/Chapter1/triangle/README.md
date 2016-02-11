@@ -11,15 +11,15 @@ O(nlongn)
 ### コード
 ```java
 int maxLength(int[] a) {
-		Arrays.sort(a);
-		for (int i = a.length - 1; i >= 2; i--) {
-			int maxLen = a[i];
-			int twoLen = a[i - 1] + a[i - 2];
-			if(twoLen > maxLen) {
-				return maxLen + twoLen;
-			}
+	Arrays.sort(a);
+	for (int i = a.length - 1; i >= 2; i--) {
+		int maxLen = a[i];
+		int twoLen = a[i - 1] + a[i - 2];
+		if(twoLen > maxLen) {
+			return maxLen + twoLen;
 		}
-		return 0;
 	}
+	return 0;
+}
 
 ```
