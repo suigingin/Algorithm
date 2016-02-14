@@ -3,6 +3,7 @@
 
 ## 目次
 - [Chapter1](#Chapter1)
+  - [三角形の最大周長](https://github.com/suigingin/Algorithm/tree/master/library/AntBook/Chapter1/triangle)
 - [Chapter2](#Chapter2)
 - [Chapter3](#Chapter3)
 - [Chapter4](#Chapter4)
