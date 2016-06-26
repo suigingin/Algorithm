@@ -3,19 +3,18 @@ import java.util.Scanner;
 
 public class POJ_2456 {
 	Scanner sc = new Scanner(System.in);
+
 	int N, C;
-	int[] x;
+	int[] P;
 
 	void run() {
 		N = sc.nextInt();
 		C = sc.nextInt();
-		x = new int[N];
-		for (int i = 0; i < N; i++) x[i] = sc.nextInt();
-		Arrays.sort(x);
-
-		int l = -1;
-		int r = 1000000000;
-
+		P = new int[N];
+		for (int i = 0; i < N; i++) P[i] = sc.nextInt();
+		Arrays.sort(P);
+		int l = 0;
+		int r = Integer.MAX_VALUE / 2;
 		while (r - l > 1) {
 			int mid = (l + r) / 2;
 			if (check(mid)) l = mid;
@@ -24,16 +23,16 @@ public class POJ_2456 {
 		System.out.println(l);
 	}
 
-	boolean check(int D) {
-		int c = C - 1;
-		int prev = x[0];
+	boolean check(int dis) {
+		int c = 1;
+		int pre = P[0];
 		for (int i = 1; i < N; i++) {
-			if (x[i] - prev >= D) {
-				c--;
-				prev = x[i];
+			if (P[i] - pre >= dis) {
+				c++;
+				pre = P[i];
 			}
 		}
-		return c <= 0 ? true : false;
+		return c >= C;
 	}
 
 	public static void main(String[] args) {
