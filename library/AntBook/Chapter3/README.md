@@ -3,4 +3,6 @@
 [3-1/lowerbound](https://github.com/suigingin/Algorithm/tree/master/library/AntBook/Chapter3/3-1/lower_bound)
 #### 解を仮定し可能か判定
 [3-1/CableMaster](https://github.com/suigingin/Algorithm/blob/master/library/AntBook/Chapter3/3-1/CableMaster/README.md)
+#### 最小値の最大化
+[3-1/AggressiveCows](https://github.com/suigingin/Algorithm/blob/master/library/AntBook/Chapter3/3-1/AggressiveCows/README.md)
 
