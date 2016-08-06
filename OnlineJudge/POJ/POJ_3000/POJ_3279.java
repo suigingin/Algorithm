@@ -37,7 +37,7 @@ public class POJ_3279 {
 			}
 			if (isAllClear(c)) {
 				StringBuilder sb = new StringBuilder();
-				for (int j = 0; j < H; j++) for (int k = 0; k < W; k++) sb.append(r[j][k]);
+				for (int j = 0; j < W; j++) sb.append(r[0][j]);
 				if (cnt < min && minS.compareTo(sb.toString()) > 0) {
 					min = cnt;
 					minS = sb.toString();
@@ -71,10 +71,7 @@ public class POJ_3279 {
 	}
 
 	boolean isAllClear(int a[][]) {
-		for (int i = 0; i < H; i++)
-			for (int j = 0; j < W; j++) {
-				if (a[i][j] == 1) return false;
-			}
+		for (int j = 0; j < W; j++) if (a[H - 1][j] == 1) return false;
 		return true;
 	}
 
