@@ -23,10 +23,10 @@ bool check(int a[], int n, int k, int N) {
 
 int main() {
 	ll N;
+	int a[100002];
 	while(scanf("%lld", &N)!=EOF) {
 		ll A = (N * (N - 1)) / 2;
 		ll K = (A % 2 == 1) ? (A / 2 + 1) : (A / 2);
-		int a[N];
 		for(int i = 0; i < N; i++) scanf("%d", a + i);
 		sort(a, a + N);
 
