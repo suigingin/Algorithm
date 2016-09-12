@@ -11,6 +11,17 @@ public class C {
 			child = new Trie[26];
 			w = 0;
 		}
+
+		void addString(String s, int w) {
+			Trie t = this;
+			for (int i = 0; i < s.length(); i++) {
+				if (t.child[s.charAt(i) - 'a'] == null) {
+					t.child[s.charAt(i) - 'a'] = new Trie();
+				}
+				t = t.child[s.charAt(i) - 'a'];
+			}
+			t.w = w;
+		}
 	}
 
 	void run() {
@@ -25,14 +36,7 @@ public class C {
 		// Trie Tree
 		Trie root = new Trie();
 		for (int i = 0; i < M; i++) {
-			Trie t = root;
-			for (int j = 0; j < p[i].length(); j++) {
-				if (t.child[p[i].charAt(j) - 'a'] == null) {
-					t.child[p[i].charAt(j) - 'a'] = new Trie();
-				}
-				t = t.child[p[i].charAt(j) - 'a'];
-			}
-			t.w = w[i];
+			root.addString(p[i], w[i]);
 		}
 
 		long[] dp = new long[N + 1];
