@@ -18,5 +18,23 @@ public class Other {
 		}
 		return dp[len1][len2];
 	}
+
+
+	/*
+	 * 長さnの文字列において、文字dを含まない最大の連続する文字列長を返す。
+	 * ただしk回まで禁止文字dを有効文字として扱うことができる。
+	 */
+	int twoPointer(int n, int k, char[] c, char d) {
+		int res = 0;
+		int ng = 0;
+		for (int l = 0, r = 0; r < n; r++) {
+			if (c[r] == d) ng++;
+			while (ng > k && l < r) {
+				if (c[l++] == d) ng--;
+			}
+			if (ng <= k) res = Math.max(res, r - l + 1);
+		}
+		return res;
+	}
 }
 
