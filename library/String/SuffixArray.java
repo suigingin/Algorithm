@@ -88,4 +88,19 @@ class SuffixArray {
 		}
 		return res;
 	}
+
+	void dump() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("i | sa[i] | lcp[i] | S[sa[i]]...]\n");
+		for (int i = 0; i <= n; i++) {
+			sb.append(i + " | ");
+			sb.append(sa[i] + " | ");
+			sb.append((i < n ? lcp[i] : "-") + " | ");
+			for (int j = sa[i]; j < n; j++) {
+				sb.append(s[j]);
+			}
+			sb.append("\n");
+		}
+		System.out.println(sb);
+	}
 }
