@@ -7,7 +7,6 @@ public class RollingHash {
 	long B2 = 1009;
 	long H1 = 1000000007;
 	long H2 = 1000000009;
-
 	long[] Base1, Base2;
 	long[] Hash1, Hash2;
 
@@ -61,17 +60,23 @@ public class RollingHash {
 		long th = 0;
 		for (int i = 0; i < tl; i++) th = (th * B1 + (T.charAt(i))) % H1;
 
-		r = tl - 1; 
+		r = tl - 1;
 		l = 0;
 		for (; r < N; r++, l++) {
 			if (getHash1() == th) return true;
 		}
-		l = 0; 
-		r = S.length();
+		l = 0;
+		r = S.length() - 1;
 		return false;
 	}
 
 	long getHash1() {
+		long res = Hash1[r] - ((l == 0) ? 0 : Hash1[l - 1] * Base1[r - l + 1]);
+		if (res < 0) res = (res + ((-res / H1) + 1) * H1) % H1;
+		return res;
+	}
+
+	long getHash1(int l, int r) {
 		long res = Hash1[r] - ((l == 0) ? 0 : Hash1[l - 1] * Base1[r - l + 1]);
 		if (res < 0) res = (res + ((-res / H1) + 1) * H1) % H1;
 		return res;
@@ -83,9 +88,15 @@ public class RollingHash {
 		return res;
 	}
 
+	long getHash2(int l, int r) {
+		long res = Hash2[r] - ((l == 0) ? 0 : Hash2[l - 1] * Base2[r - l + 1]);
+		if (res < 0) res = (res + ((-res / H2) + 1) * H2) % H2;
+		return res;
+	}
+
 	void show() {
 		System.out.println("---------show---------");
-		System.out.println("String = " + S);
+		System.out.println("String = " + S.substring(l, r + 1));
 		System.out.println("l = " + l + " r = " + r);
 		System.out.println("Hash1 = " + getHash1() + " Hash2 = " + getHash2());
 		System.out.println("----------------------");
